@@ -1,0 +1,33 @@
+{% extends "userbar.html" %}
+{% block header %}
+
+<html>
+<title>ClioReader</title>
+
+{% endblock %}
+
+<!--<link rel="stylesheet" type="text/css" href="/css/main.css">-->
+
+<body>
+{% block body %}
+<div class="h1"><h1>Care to add a book to the collection?</h1></div><br>
+<!--<div class="h4"><h4>Would you like to convert a pdf file into text, or convert that text file into an audiobook?</h4></div><br>-->
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/audio_translations.js"></script>
+
+<form action="/shareItem" method="POST" enctype="multipart/form-data">
+	{{ form.title.label }} {{ form.title }}<br>
+	{{ form.description.label }} {{ form.description }}<br>
+	{{ form.reader.label }} {{ form.reader }} {{ form.speed.label }} {{ form.speed }}<br>
+	{{ form.shareItem.label }} {{ form.shareItem }}<br>
+	{{ form.hidden_tag() }}
+	{{ form.submit.label }} {{ form.submit }}
+
+</form>
+
+<script type="text/javascript">
+//Begin post-load functions
+//recalculate_price(); 
+</script>
+{% endblock %}
+

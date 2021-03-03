@@ -1,0 +1,133 @@
+body {
+	background-color: #20acff; 
+        
+	/*text-align:center;
+        font-style:oblique;
+        font-weight:normal;
+        margin:0px;
+        padding:0px;*/
+
+}
+input {
+	font-size:1.0em;
+	border:1px solid transparent;
+	border-radius: 4px;
+}
+.input {
+	font-size:1.0em;
+	border:1px solid transparent;
+	border-radius: 4px;
+}
+#headbar-container {
+	border-bottom-width:1px;
+	border-color:white;
+	border-bottom-style:solid;
+	/*height:auto;*/
+}
+.sub-menu {
+	position:fixed;
+	margin-top:0;
+	width:auto;/*155px;*/
+	height:auto;
+	display:none;
+}
+/*h1 { /*starts head formatting 
+	color:rgb(255,255,255);
+	font-size:150%;
+	font-family:helvetica;
+}*/
+	
+.main-menu {
+	display: block;
+	position: relative;
+	color:rgb(255,255,255);
+	font-size:130%;
+	font-family:helvetica;
+	width:100%;
+	/*margin-bottom:20%;*/
+}
+.main-menu:after {
+	content: "";
+	display: table;
+}
+.nav-menu {
+	position:relative;
+	display:inline-block;
+	width: 100%;
+	z-index:10;
+}
+.nav-menu .navli {
+	display: inline;
+	list-style-type: none;
+}
+.nav-wrapper {
+	width:100%;
+	position:absolute;
+}
+/*nav ul { /*for the navigation bar*//*
+	position:fixed;
+	list-style:none;
+	margin:0px;
+	padding:0;
+	width:auto;
+	border-color:rgb(0,0,0);
+	border-style:solid;
+	background-color:rgba(225,225,225,0.8);
+	border-width:1px;
+}
+	nav ul:after {
+		content: ""; clear: both; display: block;
+	}
+.navli { /*for the list in the navigation bar *//*
+	float:left;
+	position:relative;
+}
+.navli:hover > .sub-menu {
+	display: block;
+	float:center;
+	margin: 0;
+}*/
+/*
+.navlink:link, .navlink:visited {
+	text-decoration:none;
+	font-family:helvetica;
+	font-weight:bold;
+	color:rgba(0,0,0,0.8);
+	text-align:center;
+	padding:4px; 
+	display:inline-block;
+	margin:auto;
+}
+.navlink:hover, .navlink:active {
+	background-color:rgba(175,175,175,.9);
+}
+.navlink {
+	width:125px;
+}*/
+
+table, tr, th, td {
+	border: 1px solid darkblue;
+	padding: .05em .5em .05em .5em;
+	background-color:lightcyan;
+	/*text-align:left;*/
+}
+table {
+	margin-left:1px;
+	width:auto;
+	border-collapse:collapse;
+}
+tbody {
+
+}
+tr {
+}
+th {
+	text-align:center;
+	background-color:turquoise;
+	/*color:black;*/
+
+}
+td {
+	padding-left:2px;
+	padding-right:5px;
+}*/

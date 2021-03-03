@@ -1,0 +1,51 @@
+{% if current_user['is_authenticated'] %}
+	{% extends "userbar.html" %}
+{% else %}
+	{% extends "guestbar.html" %}
+{% endif %}
+{% block header %}
+
+<html>
+<title>Let's make an audiobook</title>
+
+{% endblock %}
+
+<!--<link rel="stylesheet" type="text/css" href="/css/main.css">-->
+
+<body>
+{% block body %}
+<div class="container-fluid" style="text-align:center; font-size:1.3em;">
+<div class="h1 row"><h1>Let's Make An Audiobook!</h1></div>
+<div class="h2 row"><h2>What would you like to convert?</h2></div>
+<!--<div class="h4"><h4>Would you like to convert a pdf file into text, or convert that text file into an audiobook?</h4></div><br>-->
+<form action="/MakeTranslation" method="post" enctype="multipart/form-data">
+<div class="row">
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+	<ul>
+		{% for message in messages %}
+		<li>{{ message }}</li>
+		{% endfor %}
+	</ul>
+{% endif %}
+{% endwith %}
+</div>
+<div class="row">
+Select which file types you want to convert: <select name="convType" class="input">
+	<option value="pdf2txt">pdf -> text</option>
+	<option value="audiobook">text -> audio book</option>
+</select>
+</div>
+<div class="row">
+<div class="col-sm-6" style="text-align:right;">
+Upload File: </div>
+<div class="col-sm-6">
+<input type="file" name="toConvert"></div>  <!-- <div> Enter text here </div> -->
+</div><div class="row">
+Let's do it! <button type="submit" class="btn">Convert file</button>
+</div>
+</form>
+
+</div>
+{% endblock %}
+

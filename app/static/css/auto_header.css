@@ -1,0 +1,137 @@
+body{
+/*background: #0015ff url("Dna\ Nano\ Tech.jpg") fixed no-repeat right top; */
+/*background: url("hillsboro_ocean.jpg") fixed no-repeat right top; */
+background-color: gray; 
+background-size: 100% 100%;
+margin: 0px;
+}
+#headbar-container {
+	border-bottom-width:1px;
+	border-color:white;
+	border-bottom-style:solid;
+	/*height:auto;*/
+}
+#headbar {
+	position:relative;
+	/*background-image:url('/images/free_sky_1_strip_darker.jpeg');*/
+	background-image:url('/images/circuit_1920_strip.jpg');
+	background-size:100%;
+	background-repeat:repeat;
+	height:250px;
+	width:100%;
+	padding:10px;
+}
+#headbartext { /*Used for the text in the header at the top of the page*/
+        position:absolute;
+        padding-top:120px;
+        width:100%;
+        height:140px;
+        /*background-color:rgba(255, 255, 255, 0.3);*/
+        /*background-image:url("/images/hillsboro_ocean_strip_pier.jpg");*/
+        background-color:rgba(0,0,0,0.3);
+	color:white;
+        font-style:bold;
+        font-size: 32px;
+        font-weight:bold;
+        text-align: center;
+} /*end of first paragraph*/
+
+.sub-menu {
+	position:fixed;
+	margin-top:0;
+	width:auto;/*155px;*/
+	height:auto;
+	display:none;
+}
+h1 { /*starts head formatting */
+	color:rgb(255,255,255);
+	font-size:150%;
+	font-family:monospace;
+}
+	
+.main-menu {
+	display: block;
+	position: fixed;
+	color:rgb(255,255,255);
+	font-size:150%;
+	font-family:monospace;
+	width:100%;
+}
+.main-menu:after {
+	content: "";
+	display: table;
+}
+.nav-menu {
+	position:relative;
+	display:inline-block;
+	width: 100%;
+	z-index:10;
+}
+.nav-menu .navli {
+	display: inline;
+	list-style-type: none;
+}
+.nav-wrapper {
+	width:100%;
+}
+nav ul { /*for the navigation bar*/
+	position:fixed;
+	list-style:none;
+	margin:0px;
+	padding:0;
+	/*overflow:hidden;*/
+	width:auto;
+	border-color:rgb(255,255,255);
+	border-style:solid;
+	background-color:rgba(0,0,0,0.8);
+	border-width:1px;
+}
+	nav ul:after {
+		content: ""; clear: both; display: block;
+	}
+.navli { /*for the list in the navigation bar */
+	float:left;
+	position:relative;
+}
+.navli:hover > .sub-menu {
+	display: block;
+	float:center;
+	margin: 0;
+}
+.navlink:link, .navlink:visited {/*for hyperlinks*/
+	text-decoration:none;
+	color:rgba(255,255,255,0.8);
+	text-align:center;
+	padding:4px; /*,14px,4px,14px; */
+	display:inline-block;
+	margin:auto;
+}
+.navlink:hover, .navlink:active {
+	background-color:rgba(0,200,210,.9);
+	color:white;
+}
+.navlink {
+	width:125px;
+}
+
+table {
+	border-style:solid;
+	margin-left:10%;
+	margin-right:10%;
+	width:80%;
+	border-collapse:collapse;
+}
+tbody {
+
+}
+tr {
+	border-style:solid;
+}
+th {
+	border-style:solid;
+
+}
+td {
+	border-style:solid;
+
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE=html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Alegreya' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="/css/home.css">
+<link rel="stylesheet" type="text/css" href="/css/modal.css">
+
+<style>
+s { 
+    text-decoration: none;
+}
+</style>
+<title>Medhome: A single source for all your medical data!</title>
+<!--<nav>-->
+<link rel="stylesheet" type="text/css" href="/css/home.css">
+
+<body>
+<div class="maincontainer">
+<h1>Welcome to MedHub!</hr>
+<h2>Access your medical information <b>anywhere, anytime!</b></h2>
+<table class="hometable"><tbody><tr>
+<td style="width:50%;"><button type="button" style="float:right;" class="btn" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Get Started!</button></td>
+<td style="width:50%;"><button type="button" style="float:left;" class="btn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign in!</button></td>
+</tr></tbody></table>
+</div>
+<!-- BEGIN MODAL HTML FROM TUTORIAL -->
+<!-- Modal login form -->
+<div id="id01" class="modal">
+  <form class="modal-content animate" action="">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="/images/blue_icon.jpg" width=100px height="100px" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="m-container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" class="inputlogin" placeholder="Enter Username" name="uname" required><br>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" class="inputlogin" placeholder="Enter Password" name="psw" required><br>
+        
+      <button class="btn" type="submit">Login</button>
+      <label>
+        <input type="checkbox" class="check" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="m2-container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+<!-- Modal Signup form -->
+<div id="id02" class="modal">
+  <form class="modal-content animate" action="">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="/images/blue_icon.jpg" width=100px height="100px" alt="Avatar" class="avatar">
+    </div>
+
+   <div class="m-container">
+<table id="signup"><tbody>
+	<tr><h2 style="width:100%"><b>Let's Get you started</b></h2>
+	</tr><tr>
+      <td class="labelcell"><label for="fname"><b>First Name</b></label></td>
+      <td><input type="text" placeholder="Enter First Name" name="fname" required></td>
+	</tr><tr>
+      <td class="labelcell"><label for="lname"><b>Last Name</b></label></td>
+      <td><input type="text" placeholder="Enter Last Name" name="lname" required></td>
+	</tr><tr>
+      <td class="labelcell"><label for="email"><b>Email Address</b></label></td>
+      <td colspan="2"><input type="text" placeholder="Enter Email Address" name="email" required></td>
+	</tr><tr>
+      <td class="labelcell"><label for="email_conf"><b>Confirm Email Address</b></label></td>
+      <td colspan="2"><input type="text" placeholder="Confirm Email Address" name="email_conf" required></td>
+	</tr><tr>
+      <td class="labelcell"><label for="uname"><b>Username</b></label></td>
+      <td colspan="2"><input type="text" placeholder="Enter Username" name="uname" required></td>
+	</tr><tr>
+      <td class="labelcell"><label for="psw"><b>Password</b></label></td>
+      <td colspan="2"><input type="password" placeholder="Enter Password" name="psw" required></td>
+	</tr><tr>
+      <td class="labelcell"><label for="psw_conf"><b>Confirm Password</b></label></td>
+      <td colspan="2"><input type="password" placeholder="Confirm Password" name="psw_conf" required></td>
+	</tr>
+</tbody></table>        
+      <button class="btn" type="submit">Get Started!</button>
+      <label>
+        <input type="checkbox" class="check" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="m2-container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+<!-- END MODAL HTML FROM TUTORIAL -->
+
+<!-- BEGIN MODAL JAVASCRIPT FROM TUTORIAL -->
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+<!-- END MODAL JAVASCRIPT FROM TUTORIAL -->
+<!--<script type="text/javascript" src="/js/home.js"> </script>-->
+</body>
+</html>

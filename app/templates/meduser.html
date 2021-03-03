@@ -1,0 +1,39 @@
+<!DOCTYPE=html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/css/auto_header.css">
+<style>
+s { 
+    text-decoration: none;
+}
+</style>
+<title>{% block title %}{% endblock %} </title>
+<!--<nav>-->
+<div class = "nav-wrapper"><nav class = "nav-menu"> <ul class = "main-menu">
+  <li class="navli"> <a class="navlink" href="/">Home </a></li>
+  <!--<li class="navli"> <a class="navlink" href="/auto/about">About Me </a></li>-->
+  <li class="navli"> <a class="navlink" href="#projects"> Projects </a>
+    <ul class = "sub-menu">
+    <!--<li class="navli"><a class="navlink" href="/projects/biopunk_lab.html">Biopunk Lab</a></li><br>-->
+    <li class="navli"><a class="navlink" href="/projects/hackathons.html">Hackathons</a></li><br>
+  </ul></li>
+<li class="navli"><a class="navlink" href="/resume.pdf"> Resume </a> </li>
+ <li class="navli"> <a class="navlink" href="/auto/contact.html">Contact </a></li>
+</ul>
+</nav>
+</div>
+<body>
+<!--<script type="text/javascript" src="/attempt_00.js"> </script> -->
+<div id="headbar-container">
+<div id="headbar"> 
+        <div id="headbartext">
+	{% block headersentence %}{% endblock %}
+        </div>
+</div>
+</div>
+{% block content %}
+
+{% endblock %}
+</body>
+</html>
+

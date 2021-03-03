@@ -1,0 +1,108 @@
+<!DOCTYPE=html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Alegreya' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="/css/view_data.css">
+<!--<link rel="stylesheet" type="text/css" href="/css/modal.css">-->
+
+<style>
+s { 
+    text-decoration: none;
+}
+</style>
+<title>Medhome: A single source for all your medical data!</title>
+<!--<nav>-->
+<link rel="stylesheet" type="text/css" href="/css/home.css">
+
+<body>
+<div class="datacontainer">
+<h1>View your medical data</h1>
+<button type="button" onclick="convert_all()">Press me for inputs!</button>
+<button type="button" onclick="add_row()">Add Row</button>
+<form action="/userdata" method="POST" id="pillsform">
+<table class="userdata" id="pillsdata">
+<tbody>
+<tr><th>num</th><th class="id" name='drug_id'>id</th><th name='drug_name'>Drug Name</th><th name="dosage">Amount per dose</th><th name="consumption_schedule">How often do I take it?</th><th name="upc_code">(optional) drug upc code</th></tr>
+<tr>
+<td>1</td><td class="id">232323</td><td>Amopercyclin</td><td>1000mg </td><td>3 times per day</td><td>101101010110</td>
+</tr>
+
+</tbody></table>
+<button type="button" onclick="submit_updates()">Submit your updates!</button>
+</form>
+<script>
+function convert_all() {
+	var input_table=document.getElementById("pillsdata");
+	var firstInput = false;
+	if (input_table.rows[1].cells[1].innerHTML.indexOf("<input ") != -1) {
+		firstInput = true;
+	}
+	for (var i = 1, row; row = input_table.rows[i]; i++) {
+		//iterate through rows
+		//rows would be accessed using the "row" variable assigned in the for loop
+   		for (var j = 1; j < input_table.rows[1].cells.length; j++) {
+			col = row.cells[j];
+			//iterate through columns
+			//columns would be accessed using the "col" variable assigned in the for loop
+			var current_val = col.innerHTML;
+			//console.log("current value is " + current_val);
+			if (current_val.indexOf("<input name=") != -1 && firstInput==true) {
+				var subinput = col.children[0];
+				//col.innerHTML = subinput.getAttribute("value");
+				col.innerHTML = subinput.value;
+			} else  {
+				if (current_val.indexOf("<input name=") == -1) {
+					var usename = input_table.rows[0].cells[j].getAttribute("name");
+					//console.log(input_table.rows[0].cells[j].innerHtml)
+					//console.log(input_table.rows[0].cells[j].getAttribute("name"))
+					col.innerHTML = "<input type=\"text\" name=\"" + usename + "_" + i + "\" value=\"" + current_val + "\">";
+				}
+			}
+		}  
+	}
+}
+
+function convert_row(my_row) {
+	console.log("converted row");
+}
+
+function add_row() {
+	var input_table=document.getElementById("pillsdata");
+	var row = input_table.insertRow(input_table.rows.length);
+	var hrow = input_table.rows[0];
+	var tlength=input_table.rows.length;
+	/* Important */
+	for (var j = 0, col; col=hrow.cells[j]; j++) {
+		cell = row.insertCell(j);
+		if (j == 0) {
+			cell.innerHTML = tlength-1;
+			
+		} else {
+			if (j == 1) {
+				cell.setAttribute("class", "id");
+			}
+			cell.innerHTML = "<input type=\"text\" name=\"" + hrow.cells[j].getAttribute("name") + "_" + tlength + "\">";
+		}
+	}
+	cell = row.insertCell(j);
+	cell.innerHTML="<button type=\"button\" onclick=\"delete_row(" + tlength + ")\">delete</button>";
+}
+function delete_row(row_num) {
+	row_num = row_num - 1;
+	var input_table=document.getElementById("pillsdata");
+	input_table.rows[row_num].cells[2].innerHTML = "deleteme";	
+	//input_table.rows[row_num].setAttribute("display","none");
+	input_table.rows[row_num].style.display='none';
+}
+function submit_updates() {
+	var input_table=document.getElementById("pillsdata");
+	convert_all();
+	if (input_table.rows[1].cells[1].innerHTML.indexOf("<input ") == -1) {
+		convert_all();
+	}
+	document.getElementById("pillsform").submit();
+
+}
+</script>
+</body>
+</html>

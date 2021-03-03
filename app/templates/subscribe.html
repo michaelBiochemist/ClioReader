@@ -1,0 +1,27 @@
+<body class="body">
+	<div class="container">
+		{% if current_user['is_authenticated'] %}
+			<form name="topaypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_xclick">
+				<input type="hidden" name="custom" value="{{current_user['id']}}"/>
+				<input type="hidden" name="business" value="wizard@biochemist.me">
+				<input type="hidden" name="item_name" value="Medhub Use">
+				<input type="hidden" name="item_number" value="1">
+				<input type="hidden" name="no_shipping" value="1">
+				<input type="hidden" name="a3" value="10.00">
+				<input type="hidden" name="amount" value="10.00">
+				<input type="hidden" name="p3" value="1">
+				<input type="hidden" name="t3" value="M">
+				<input type="hidden" name="src" value="1">
+				<input type="hidden" name="sra" value="1">
+				<!--<input type="hidden" name="return" value="http://74.95.136.158:9090/success/"> -->
+				<input type="hidden" name="return" value="http://0.0.0.0:9090/success/">
+				<input type="hidden" name="cancel_return" value="http://74.95.136.158:9090/">
+				<input type="hidden" name="notify_url" value="http://74.95.136.158:9090/ipn/">
+				<input type="submit" value="Buy Now" name="submit" title="PayPal - The safer, easier way to pay online!" class="btn btn-primary">
+			</form>	
+		{% else %}
+			<p>You need to be <a href="/login" target="blank"><strong>logged in</strong></a> to buy now.</p>
+		{% endif %}
+	</div>
+</body>

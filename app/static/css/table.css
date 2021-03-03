@@ -1,0 +1,21 @@
+table {
+	border-style:solid;
+	margin-left:10%;
+	margin-right:10%;
+	width:80%;
+	border-collapse:collapse;
+}
+tbody {
+
+}
+tr {
+	border-style:solid;
+}
+th {
+	border-style:solid;
+
+}
+td {
+	border-style:solid;
+
+}

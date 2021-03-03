@@ -1,0 +1,44 @@
+{% extends "userbar.html" %}
+{% block header %}
+
+<html>
+<title>{{ audiobook.name }}</title>
+
+{% endblock %}
+
+<!--<link rel="stylesheet" type="text/css" href="/css/main.css">-->
+
+<body>
+{% block body %}
+<div class="h1"><h1>Your audiobook: "{{ audiobook.name }}"</h1></div><br>
+<!--<div class="h4"><h4>Would you like to convert a pdf file into text, or convert that text file into an audiobook?</h4></div><br>-->
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/audio_translations.js"></script>
+
+<table><tbody class="audiobook table" id="single_audiobook_table">
+<tr class="">
+	<th>Order</th>
+	<th>Name</th>
+	<th>Status</th>
+</tr>
+{% for chapter in all_chapters %}
+	<tr id="row{{ chapter.id }}">
+	<td>{{ chapter.order_no }}</td>
+	<td>{{ chapter.name }}</td>
+	<td>{% if chapter.status == "Ready for Download" %}
+		<a href="/download_audio_chapter_{{ chapter.id }}">{{ chapter.status }}</a>
+	{% else %}
+		{{ chapter.status }}	
+	{% endif %}</td>
+	</tr>	
+{% endfor %}
+</tbody></table>
+<!--<button type="button" onclick="downall();">Download All</button>-->
+<!--<button type="button" onclick="DoAjaxChaptersDownload({{ audiobook.id }});">Download All</button>
+<a href="/download_all{{ audiobook.id }}">Download All</a>-->
+<script type="text/javascript">
+//Begin post-load functions
+//recalculate_price(); 
+</script>
+{% endblock %}
+

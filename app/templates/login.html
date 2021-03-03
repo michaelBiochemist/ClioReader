@@ -1,0 +1,109 @@
+<!DOCTYPE=html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/modal.css">
+<link rel="stylesheet" type="text/css" href="/css/login.css">
+
+<style>
+s { 
+    text-decoration: none;
+}
+</style>
+<title>ClioReader</title>
+<!--<nav>-->
+<!--<link rel="stylesheet" type="text/css" href="/css/home.css">-->
+
+<body>
+<div class="maincontainer">
+<h1>Welcome to the ClioReader audiobook generation service!</h1>
+Named after the muse of History, this site aims to leverage Amazon's powerful text-to-speech engine to convert your old PDF files into an audiobook that sounds, like the goddess&#x2014;almost human.<br>
+<b>Please log in or register to use this app.</b>
+<br><br>
+<table class="hometable"><tbody><tr>
+<td style="width:50%;"><button type="button" style="float:right;" class="btn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Log in</button></td>
+<td style="width:50%;"><button type="button" style="float:left;" class="btn" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Register</button></td>
+</tr></tbody></table>
+</div>
+<br>
+<img src="/images/clio_statue1.jpg">
+<!-- BEGIN MODAL HTML FROM TUTORIAL -->
+<!-- Modal login form -->
+<div id="id01" class="modal">
+  <form class="modal-content animate" action="/login" method="POST">
+	{{ form.hidden_tag() }}
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="/images/Closed_Book_Icon.svg.png" width=100px height="100px" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="m-container">
+      <label for="email"><b> {{ form_l.email.label }}</b></label>
+      {{ form_l.email }}<br>
+
+      <label for="psw"><b>{{ form_l.password.label }}</b></label>
+      {{ form_l.password }}<br>
+        
+	{{ form_l.submit }} {{ form_l.remember_me }} {{ form_l.remember_me.label }}<br>
+    </div>
+
+    <div class="m2-container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw"><a href="/forgot_password">Forgot password?</a></span>
+    </div>
+  </form>
+</div>
+<!-- Modal Signup form -->
+<div id="id02" class="modal">
+  <form class="modal-content animate" action="/signup" method="POST"> {{ form.hidden_tag() }}
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="/images/Closed_Book_Icon.svg.png" width=100px height="100px" alt="Avatar" class="avatar">
+    </div>
+
+   <div class="m-container">
+<table id="signup"><tbody>
+	<tr><h2 style="width:100%"><b>Let's Get you started</b></h2>
+	</tr><tr>
+      <td class="labelcell"><label for="fname"><b>{{ form.firstname.label }}</b></label></td>
+      <td>{{ form.firstname(size=32) }}</td>
+	</tr><tr>
+      <td class="labelcell"><label for="email"><b> {{ form.email.label }}</b></label></td>
+      <td colspan="2">{{ form.email(size=32) }}</td>
+	</tr><tr>
+      <td class="labelcell"><label for="email_conf"><b>Confirm Email Address</b></label></td>
+      <td colspan="2">{{ form.email_confirm(size=32) }}</td>
+	</tr><tr>
+      <td class="labelcell"><label for="psw"><b> {{ form.password.label }}</b></label></td>
+      <td colspan="2"> {{ form.password }} </td>
+	</tr><tr>
+      <td class="labelcell"><label for="psw_conf"><b>{{ form.password_confirm.label }}</b></label></td>
+      <td colspan="2">{{ form.password_confirm }} </td>
+	</tr>
+</tbody></table>        
+  	{{ form.submit }} {{ form.remember_me }} {{ form.remember_me.label }}<br>
+    </div>
+
+    <div class="m2-container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="/forgot_password">password?</a></span>
+    </div>
+  </form>
+<!-- END MODAL HTML FROM TUTORIAL -->
+
+<!-- BEGIN MODAL JAVASCRIPT FROM TUTORIAL -->
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+<!-- END MODAL JAVASCRIPT FROM TUTORIAL -->
+<!--<script type="text/javascript" src="/js/home.js"> </script>-->
+</body>
+</html>

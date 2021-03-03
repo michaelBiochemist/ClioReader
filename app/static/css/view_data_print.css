@@ -1,0 +1,73 @@
+/*body {
+	background-image:url("/images/Medicina-general-min-1903x1050.jpg");
+	background-repeat: no-repeat;
+	text-align:center;
+	font-style:oblique;
+	font-weight:normal;
+	margin:0px;
+	padding:0px;
+}*/
+.id {
+	display:none;
+}
+
+.datacontainer {
+	/*background-color: rgba(255,255,255,0.95);*/
+	width: 100%;
+	/*margin:0px;*/
+	min-height: 100%;
+	/*border-style:solid;*/
+}
+/*
+.container .container-button {
+	margin-left:40%;
+	margin-top:40%;
+	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+}
+*/
+table {
+	border-style:solid;
+	/*margin-left:10%;
+	margin-right:10%;*/
+	/*width:80%;*/
+	border-collapse:collapse;
+	font-size:14px;
+}
+tbody {
+
+}
+tr {
+	border-style:solid;
+}
+th {
+	border-style:solid;
+
+}
+td {
+	border-style:solid;
+
+}
+
+h1 {
+	/*font-family:alegreya;*/
+	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+	/*font-family:serif;*/
+	/*font-size:50px;*/
+	font-size:18px;
+	margin-top:2%;
+	margin-bottom:0%;
+	color:rgb(10,25,100);
+}
+h2 {
+	margin-top:0%;
+	margin-bottom:10px;
+	/*font-family:alegreya;*/
+	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size:25px;
+	font-weight:normal;
+
+}

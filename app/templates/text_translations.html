@@ -1,0 +1,50 @@
+{% extends "userbar.html" %}
+{% block header %}
+
+<html>
+<title>Convert your pdf to text here</title>
+
+{% endblock %}
+
+<!--<link rel="stylesheet" type="text/css" href="/css/main.css">-->
+
+<body>
+{% block body %}
+<form action="/create_audiobooks" method="POST">
+<div class="row"><div class="h1 col-sm-6">Your files converted to text.</div>
+<div class="col-sm-6"><button type="submit" style="margin-top:22px;margin-bottom:8px;">Create audiobook projects</button></div></div>
+<!--<div class="h4"><h4>Would you like to convert a pdf file into text, or convert that text file into an audiobook?</h4></div><br>-->
+<table><tbody class="textbook">
+<tr>
+	<th>Name of PDF</th>
+	<th>Name of txt</th>
+	<th>Number of Pages</th>
+	<th>Status</th>
+	<th>Make directly into Audiobook?</th>
+	<th>Date Created</th>
+</tr>
+{% for txt in textfiles %}
+	<tr id="row{{ txt.id }}">
+	<td>{{ txt.name_pdf }}</td>
+	<td>{{ txt.name_text }}</td>
+	<td>{{ txt.num_pages }}</td>
+	<td>{% if txt.status == "Ready for Download" %}
+		<a href="/download_text_{{ txt.id }}">{{ txt.status }}</a>
+	{% else %}
+		{{ txt.status }}	
+	{% endif %}</td>
+	<td>{% if txt.status != "Ready for Download" %}
+		- Not ready -
+	{% elif txt.book_id != None %}
+		&#x2705;
+	{% else %}
+		<input type="checkbox" class="makebook" name="{{ txt.id }}">
+	{% endif %}</td>
+	<td>{{ txt.date_completed }}</td>
+	<!--<td>{{ txt.time_remaining }}</td>-->
+	</tr>	
+{% endfor %}
+</tbody></table>
+</form>
+
+{% endblock %}

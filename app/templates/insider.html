@@ -1,0 +1,33 @@
+{% extends "userbar.html" %}
+{% block header %}
+
+<html>
+<title>ClioReader</title>
+
+{% endblock %}
+
+<!--<link rel="stylesheet" type="text/css" href="/css/main.css">-->
+
+<body>
+{% block body %}
+<div class="h1" text-align="center"><h1>Hello Friend, check out a book/audiobook</h1></div><br>
+<!--<div class="h4"><h4>Would you like to convert a pdf file into text, or convert that text file into an audiobook?</h4></div><br>-->
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/audio_translations.js"></script>
+
+{% for sObject in allShares %}
+	<p><a href="{{ sObject.link }}">{{ sObject.title }}</a><br><br>
+		{{ sObject.description }}<br><br>
+		Reader: {{ sObject.reader }} Speed: {{ sObject.speed }}x	
+	</p><br>
+{% endfor %}
+
+<a href="/shareItem">Add your own to the collection?</a>
+
+
+<script type="text/javascript">
+//Begin post-load functions
+//recalculate_price(); 
+</script>
+{% endblock %}
+

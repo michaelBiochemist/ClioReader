@@ -1,0 +1,51 @@
+{% extends "userbar.html" %}
+{% block header %}
+
+<html>
+<title>About this site</title>
+
+<link rel="stylesheet" type="text/css" href="/css/about.css">
+{% endblock %}
+
+
+<body>
+{% block body %}
+<div class="col-sm-4">
+<div class="h1"><h1>About This Site</h1></div>
+<!--<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/audio_translations.js"></script>-->
+<h3>Welcome to the ClioReader audiobook generation service!</h3>
+<br>
+<p>
+Named after the muse of History, this site aims to leverage Amazon's powerful text-to-speech engine to convert your old PDF files into an audiobook that sounds, like the goddess&#x2014;almost human.<br>
+<br>
+As you've already likely observed, you can create PDF to text conversion projects and text to audio conversion projects on the "Home" page. You can see the status of those projects on the "My text files" and "My Audiobooks" pages, respectively. However, since Amazon charges for it's services, the text-to-speech engine won't start recording your audiobook until after you've paid for it, and unfortunately Paypal charges a minimum 25 cent transaction fee. <b>The PDF to text conversion will, however since is used an OCR (optical character recognition) tool available freely.</b> Since the OCR is bound to make errors, I highly recommend editing the text files before converting them into audiobooks.    
+<br>
+<br>
+Please make as many audiobooks as you want, and enjoy your reading. If you have any questions, comments, or suggestions for my site, please reach out to me at michael@biochemist.me<br>
+<br>
+Have a lovely day!<br>
+</p>
+</div>
+<div class="col-sm-4">
+<br>
+<h3>About Clio.</h3>
+Clio is one of the nine muses, said to be the daughters of Zeus and the titaness Mnemosyne (the goddess memory herself, from which we get the word 'mnemonics') these sisters are goddesses of the arts. It is said that an artist is channelling the muses when he works, and even Homer's Odyssesy begins with an invocation of the muse:<br><br>
+<i>"Sing in me, Muse, and through me tell the story
+of that man skilled in all ways of contending,
+the wanderer, harried for years on end,
+after he plundered the stronghold
+on the proud height of Troy."</i>
+<br><br>
+Clio is also the mother of Hyacinth, a mythical Achaean of such beauty that the Apollo became his lover. When Apollo shows Hyacinth a new game involving tossing a discus back and forth, it accidentally hit him in the head, killing the young man. Distraught, Apollo names the the most beautiful flower he could find "Hyacinth" to commemorate his departed lover. The Hyacinth flower has been representative of Apollo second only to Daphne (the laurel). 
+
+</div>
+
+<div class="col-sm-4">
+<br><img src="/images/clio_painting0.jpg"> 
+</div>
+<!--<script type="text/javascript">
+//Begin post-load functions
+</script> -->
+{% endblock %}
+

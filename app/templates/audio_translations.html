@@ -1,0 +1,86 @@
+{% extends "userbar.html" %}
+{% block header %}
+
+<html>
+<title>Your Audiobooks</title>
+
+{% endblock %}
+
+<!--<link rel="stylesheet" type="text/css" href="/css/main.css">-->
+
+<body>
+{% block body %}
+
+<div class="col-sm-6">
+<div class="h1"><h1>Your audiobook projects</h1></div>
+</div>
+
+<div class="col-sm-6">
+<h3 class="row"><div style="margin-left:0px;margin-right:0px;float:left;">Total Price: $</div><div id="price_sum" style="margin-left:0px;float:left;">0.25</div></h3>
+<div class="row">
+<button type="submit" data-toggle="tooltip" title="Please select the books you want and click this button. Note the above price. PLEASE don't click this if the price is $0.25. You're not buying anything then!">Purchase Audiobooks with PayPal</button>
+<!--<button type="button" onclick="buy_stuff()">Purchase Audiobooks with PayPal</button>-->
+<button type="button" onclick="recalculate_price()">re-calculate price</button>
+</div>
+<!--<button type="button" value="Subscribe" name="submit" title="PayPal - The safer, easier way to pay online!" class="btn btn-primary">-->
+</div>
+<!--<div class="h4"><h4>Would you like to convert a pdf file into text, or convert that text file into an audiobook?</h4></div><br>-->
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/audio_translations.js"></script>
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">-->
+<form name="topaypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" id="paypal_form">
+	<div type="hidden" style="display:none;" id="uid">{{current_user['id']}}</div>
+	<!--<input type="hidden" name="cmd" value="_s-xclick">-->
+	<input type="hidden" name="cmd" value="_xclick">
+	<input type="hidden" name="custom" value="{{current_user['id']}}" id="paypal_custom_message"/>
+	<input type="hidden" name="business" value="wizard@biochemist.me">
+	<input type="hidden" name="item_name" value="Audio Files">
+	<input type="hidden" name="item_number" value="1">
+	<!--<input type="hidden" name="item_name" value="subscription button">-->
+	<input type="hidden" name="no_shipping" value="1">
+	<input type="hidden" name="a3" value="0" id="paypalPrice">
+	<input type="hidden" name="amount" value="0" id="paypalPrice2">
+	<input type="hidden" name="p3" value="1">
+	<input type="hidden" name="t3" value="M">
+	<input type="hidden" name="src" value="1">
+	<input type="hidden" name="sra" value="1">
+	<input type="hidden" name="return" value="http://clioreader.com/success/">
+	<input type="hidden" name="cancel_return" value="http://clioreader.com/">
+	<input type="hidden" name="notify_url" value="http://clioreader.com/ipn/">
+
+<div class="col-sm-9">
+<table><tbody class="audiobook" id="audioproject_table">
+<tr>
+	<th>Name</th>
+	<th>Status</th>
+	<th>Price</th>
+	<th>Buy Book?</th>
+	<!--<th>Time Remaining before deletion.</th>-->
+</tr>
+{% for book in AudioBooks %}
+	<tr id="row{{ book.id }}">
+	<td>{{ book.name }}</td>
+	<td>{% if book.status == "Ready for Download" %}
+		<a href="/audiobook_{{ book.id }}">{{ book.status }}</a>
+	{% else %}
+		{{ book.status }}	
+	{% endif %}</td>
+	<td id="Price|{{ book.id }}">{{ book.price }}</td>
+	<!--<td> <input type="checkbox" id="WillPurchase|{{ book.id }}" onchange="update_price('{{ book.id }}');" name="Book|{{ book.id }}"></td>-->
+	<td>{% if book.purchased == 1 %}
+		&#x2705;
+	{% else %}
+		<input type="checkbox" id="WillPurchase|{{ book.id }}" onchange="recalculate_price()" name="Book|{{ book.id }}">	
+	{% endif %}</td>
+	<!--<td>{{ book.time_remaining }}</td>-->
+	</tr>	
+{% endfor %}
+</tbody></table>
+</div>
+</form>
+<script type="text/javascript">
+//Begin post-load functions
+recalculate_price(); 
+</script>
+{% endblock %}
+

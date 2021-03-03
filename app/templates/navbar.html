@@ -1,0 +1,28 @@
+<!DOCTYPE=html>
+<html>
+<head>
+<title>Medhub: a place to store all your medical data.</title>
+<link href='https://fonts.googleapis.com/css?family=Alegreya' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="/css/navbar.css">
+{% block links %}
+{% endblock %}
+
+<div class="nav-wrapper">
+<nav class="nav-menu">
+<ul class="main-menu">
+  <li class="navli"> <a class="navlink" href="/">Home </a></li>
+  <li class="navli"> <a class="navlink" href="/print_data">Export Data</a>
+    <!--<ul class="sub-menu"> Defines the sub-menu for the method of exporting data
+      <li class="navli"><a class="navlink" href="/export/pdf">As pdf</a></li>
+    </ul> -->
+  </li>
+  <li class="navli"> <a class="navlink" href="/settings">User Settings</a></li>
+  <li class="navli"> <a class="navlink" href="/logout">Log Out</a></li>
+</ul>
+</nav>
+<div>
+<body>
+{% block body %}
+
+{% endblock %}
+</body>

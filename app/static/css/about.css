@@ -1,0 +1,14 @@
+body {
+	/*background-image:url("/images/Medicina-general-min-1903x1050.jpg");*/
+	text-align:left;
+	font-style:normal;
+	font-weight:normal;
+}
+ul {
+	text-align:left;
+	margin:auto;
+}
+img {
+	max-width:100%;
+	/*float:right;*/
+}

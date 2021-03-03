@@ -1,0 +1,27 @@
+<!DOCTYPE=html>
+<html>
+<head>
+<title>Medhub: a place to store all your medical data.</title>
+<link href='https://fonts.googleapis.com/css?family=Alegreya' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="/css/view_data_print.css">
+<!--<link rel="stylesheet" type="text/css" href="/css/home.css">-->
+
+<body>
+<div class="datacontainer">
+<h1>View your medical data</h1>
+<form action="/userdata" method="POST" id="pillsform">
+<table class="userdata" id="pillsdata">
+<tbody>
+<tr><th>num</th><th class="id" name='drug_id'>id</th><th name='drug_name'>Drug Name</th><th name="dosage">Amount per dose</th><th name="consumption_schedule">How often do I take it?</th><th name="upc_code">(optional) drug upc code</th></tr>
+<!--<tr>
+<td>1</td><td class="id">232323</td><td>Amopercyclin</td><td>1000mg </td><td>3 times per day</td><td>101101010110</td>
+</tr> -->
+{% for drug in drugs %}
+<tr>
+<td>{{ drug.row_num }}</td><td class="id">{{ drug.id }}</td><td>{{ drug.name }}</td><td>{{ drug.dosage }}</td><td>{{ drug.consumption_schedule }}</td><td>{{ drug.upc }}</td>
+</tr>
+{% endfor %}
+</tr>
+</tbody></table>
+</form>
+</body>
